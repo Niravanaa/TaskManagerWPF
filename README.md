@@ -1,6 +1,6 @@
 # TaskManagerWPF
 
-TaskManagerWPF is a feature-rich task management application built with Windows Presentation Foundation (WPF) and C#. This project is designed to help you progressively develop your WPF and C# skills by following a roadmap that includes various stages of functionality enhancements.
+TaskManagerWPF is a feature-rich task management application built with Windows Presentation Foundation (WPF) and C#. I want to design to develop my WPF and C# skills by following a roadmap that includes various stages of functionality enhancements.
 
 ## Roadmap
 
@@ -42,9 +42,9 @@ TaskManagerWPF is a feature-rich task management application built with Windows 
 
 ## Getting Started
 
-To begin your journey with TaskManagerWPF, clone this repository and open it in Visual Studio. Follow the roadmap stages to progressively enhance your application while gaining valuable experience in WPF and C# development.
+To try out TaskManagerWPF, clone this repository and open it in Visual Studio. As time goes on, I will be attempting to complete the above roadmap in a consistent manner.
 
-Feel free to customize and expand TaskManagerWPF based on your learning goals and interests. Happy coding!
+Feel free to customize and expand TaskManagerWPF! Happy coding!
 
 ## License
 
