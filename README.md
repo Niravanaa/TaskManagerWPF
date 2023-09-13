@@ -2,6 +2,8 @@
 
 TaskManagerWPF is a feature-rich task management application built with Windows Presentation Foundation (WPF) and C#. I want to design to develop my WPF and C# skills by following a roadmap that includes various stages of functionality enhancements.
 
+<p align="center"><img src="https://i.imgur.com/FrsGyhh.png"/></p>
+
 ## Roadmap
 
 ### 1. Basic Task List
