@@ -7,11 +7,31 @@
             <Setter Property="MinHeight" Value="30" />
             <Setter Property="FontSize" Value="14" />
             <Setter Property="Padding" Value="5" />
+            <Setter Property="Foreground" Value="Black" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TextBox">
+                        <Grid>
+                            <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" />
+                            <ScrollViewer x:Name="PART_ContentHost" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                            <TextBlock x:Name="PlaceholderText" Text="{TemplateBinding Tag}" Foreground="Gray" Margin="5,0,0,0" Visibility="Collapsed"/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsKeyboardFocused" Value="True">
+                                <Setter TargetName="PlaceholderText" Property="Visibility" Value="Collapsed" />
+                            </Trigger>
+                            <Trigger Property="Text" Value="">
+                                <Setter TargetName="PlaceholderText" Property="Visibility" Value="Visible" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
         </Style>
         <Style TargetType="Button">
-            <Setter Property="MinWidth" Value="100" />
-            <Setter Property="MinHeight" Value="30" />
-            <Setter Property="FontSize" Value="14" />
+            <Setter Property="MinWidth" Value="80" />
+            <Setter Property="MinHeight" Value="25" />
+            <Setter Property="FontSize" Value="12" />
             <Setter Property="Margin" Value="5" />
         </Style>
         <Style TargetType="ComboBox">
@@ -40,18 +60,24 @@
         </ListBox>
 
         <StackPanel Grid.Row="1" Orientation="Vertical" Margin="10">
-            <TextBox Name="TaskTitleTextBox" Width="400" Margin="0,0,0,10" Text="Task Title" />
-            <TextBox Name="TaskDescriptionTextBox" Width="400" Margin="0,0,0,10" Text="Task Description" />
-            <DatePicker Name="DueDatePicker" Width="400" Margin="0,0,0,10" Text="Due Date" />
-            <ComboBox Name="PriorityComboBox" Width="400" Text="Priority" SelectedValue="{Binding SelectedPriority}">
+            <TextBox Name="TaskTitleTextBox" Width="400" Margin="0,0,0,10" Tag="Task Title" />
+            <TextBox Name="TaskDescriptionTextBox" Width="400" Margin="0,0,0,10" Tag="Task Description" />
+            <DatePicker Name="DueDatePicker" Width="400" Margin="0,0,0,10" Tag="Due Date" />
+            <ComboBox Name="PriorityComboBox" Width="400" SelectedValue="{Binding SelectedPriority}" SelectionChanged="PriorityComboBox_SelectionChanged">
+                <ComboBoxItem Content="Select Priority" IsEnabled="False" IsSelected="True"/>
                 <ComboBoxItem Content="Low" />
                 <ComboBoxItem Content="Medium" />
                 <ComboBoxItem Content="High" />
             </ComboBox>
 
-            <Button Content="Add Task" Click="AddTask_Click" />
-            <Button Content="Edit Task" Click="EditTask_Click" />
-            <Button Content="Delete Task" Click="DeleteTask_Click" />
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 15 0 0">
+                <Button Content="Add Task" Click="AddTask_Click"/>
+                <Button Content="Edit Task" Click="EditTask_Click"/>
+                <Button Content="Delete Task" Click="DeleteTask_Click"/>
+                <Button Content="Load Tasks" Click="LoadTasks_Click"/>
+                <Button Content="Save Tasks" Click="SaveTasks_Click"/>
+            </StackPanel>
         </StackPanel>
     </Grid>
 </Window>

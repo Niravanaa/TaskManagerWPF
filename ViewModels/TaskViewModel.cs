@@ -19,6 +19,11 @@ namespace TaskManagementApp.ViewModels
     {
         private Task _taskModel;
 
+        public TaskViewModel()
+        {
+            _taskModel = new Task();
+        }
+
         public TaskViewModel(Task task)
         {
             _taskModel = task;
